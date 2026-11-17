@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nusantara Cyber Survivor - Kampung Metropolitan 2077</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- HUD Atas -->
+        <div class="hud">
+            <div class="stat-box">SKOR: <span id="score">0</span> <small id="combo" class="combo-badge">x1</small></div>
+            <div class="stat-box">REKOR: <span id="highScore">0</span></div>
+            <div class="stat-box">LVL: <span id="level">1</span></div>
+            <div class="stat-box">DASH [SPACE]: <span id="dashStatus" class="ready">SIAP</span></div>
+            <div class="stat-box">JURUS [E]: <span id="ultStatus" class="ready">100%</span></div>
+            <div class="stat-box">HP: <span id="hp">100</span></div>
+        </div>
+
+        <!-- Bar XP -->
+        <div class="xp-bar-container">
+            <div id="xp-bar"></div>
+        </div>
+
+        <!-- Canvas Arena -->
+        <canvas id="gameCanvas" width="840" height="540"></canvas>
+
+        <!-- Layar Mulai & Pilih Karakter -->
+        <div id="overlay" class="overlay">
+            <h1 id="overlay-title">NUSANTARA CYBER SURVIVOR</h1>
+            <p id="overlay-desc">Pilih Jagoan Kampung Metropolitan 2077:</p>
+
+            <div id="charSelect" class="char-grid">
+                <div class="char-card selected" data-char="ojol">
+                    <div class="char-icon ojol-icon"></div>
+                    <h3>BANG OJOL</h3>
+                    <span class="role-tag">CYBER RIDER</span>
+                    <p>HP: 100 • Speed: Lincah<br><strong>Jurus [E]:</strong> Konvoi Paket Kilat</p>
+                </div>
+                <div class="char-card" data-char="silat">
+                    <div class="char-icon silat-icon"></div>
+                    <h3>JAWARA SILAT</h3>
+                    <span class="role-tag">CRIT PENDEKAR</span>
+                    <p>HP: 85 • Speed: Cepat + 35% Crit<br><strong>Jurus [E]:</strong> Cakra Harimau Putih</p>
+                </div>
+                <div class="char-card" data-char="hansip">
+                    <div class="char-icon hansip-icon"></div>
+                    <h3>PAK HANSIP</h3>
+                    <span class="role-tag">MECHA RONDA</span>
+                    <p>HP: 150 • Meriam Kentongan Area<br><strong>Jurus [E]:</strong> Gelombang Kentongan + Perisai</p>
+                </div>
+            </div>
+
+            <div class="controls-hint">
+                <strong>WASD / Arrow</strong>: Gerak • <strong>SPASI</strong>: Ngebut (Dash) • <strong>E</strong>: Jurus Pamungkas • <strong>P / ESC</strong>: Pause
+            </div>
+            <button id="startBtn">GAS KE ARENA!</button>
+        </div>
+
+        <!-- Modal Pilihan Upgrade Saat Level Up -->
+        <div id="upgradeModal" class="overlay hidden">
+            <h2>NAIK LEVEL! PILIH UPGRADE</h2>
+            <div class="upgrade-options">
+                <button class="upgrade-btn" data-type="fireRate">☕ Kopi Dobel<br><small>+22% Kecepatan Serang</small></button>
+                <button class="upgrade-btn" data-type="multiShot">🔱 Senjata Ganda<br><small>+1 Proyektil Tambahan</small></button>
+                <button class="upgrade-btn" data-type="damage">🔥 Jimat Sakti<br><small>+35% Damage & Crit Chance</small></button>
+                <button class="upgrade-btn" data-type="magnet">🧲 Magnet Receh<br><small>+45% Jangkauan Koin & Heal 35 HP</small></button>
+            </div>
+        </div>
+
+        <!-- Layar Pause -->
+        <div id="pauseOverlay" class="overlay hidden">
+            <h2>ISTIRAHAT SEBENTAR (PAUSED)</h2>
+            <p>Tekan <strong>P</strong> atau <strong>ESC</strong> untuk lanjut ronda</p>
+            <button id="resumeBtn">LANJUT MAIN</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

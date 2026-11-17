@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #070a0f;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 840px;
+    border: 2px solid #10b981;
+    border-radius: 12px;
+    box-shadow: 0 0 32px rgba(16, 185, 129, 0.3);
+    overflow: hidden;
+    background: #0d121c;
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #111827;
+    font-weight: bold;
+    letter-spacing: 0.8px;
+    font-size: 12.5px;
+    border-bottom: 2px solid #facc15;
+}
+
+.stat-box span {
+    color: #34d399;
+}
+
+.combo-badge {
+    background: rgba(239, 68, 68, 0.25);
+    border: 1px solid #ef4444;
+    color: #fca5a5;
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+    font-size: 11px;
+}
+
+.ready { color: #34d399 !important; }
+.cooldown { color: #94a3b8 !important; }
+
+.xp-bar-container {
+    width: 100%;
+    height: 6px;
+    background: #1f2937;
+}
+
+#xp-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #facc15);
+    transition: width 0.2s;
+}
+
+canvas {
+    display: block;
+    background: #11151c;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 13, 22, 0.93);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+    z-index: 10;
+}
+
+.overlay.hidden {
+    display: none;
+}
+
+.overlay h1, .overlay h2 {
+    color: #34d399;
+    margin-bottom: 8px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 15px rgba(52, 211, 153, 0.65);
+}
+
+.overlay p {
+    color: #cbd5e1;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* Kartu Pemilihan Karakter */
+.char-grid {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.char-card {
+    background: #161e2e;
+    border: 2px solid #28354d;
+    border-radius: 10px;
+    padding: 14px;
+    width: 230px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.char-card:hover {
+    border-color: #34d399;
+    transform: translateY(-3px);
+}
+
+.char-card.selected {
+    border-color: #facc15;
+    background: #1b2838;
+    box-shadow: 0 0 18px rgba(250, 204, 21, 0.35);
+}
+
+.char-icon {
+    width: 44px;
+    height: 44px;
+    margin: 0 auto 10px;
+    border-radius: 50%;
+}
+
+.ojol-icon {
+    background: radial-gradient(circle at 35% 35%, #34d399, #059669);
+    border: 3px solid #111827;
+    box-shadow: 0 0 12px #10b981;
+}
+
+.silat-icon {
+    background: linear-gradient(135deg, #ef4444, #991b1b);
+    border: 2px solid #facc15;
+    box-shadow: 0 0 12px #ef4444;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.hansip-icon {
+    background: linear-gradient(135deg, #4d7c0f, #365314);
+    border: 2px solid #bef264;
+    box-shadow: 0 0 12px #84cc16;
+    border-radius: 6px;
+}
+
+.char-card h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+    color: #fff;
+}
+
+.role-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: rgba(250, 204, 21, 0.15);
+    color: #facc15;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.char-card p {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #94a3b8;
+}
+
+.controls-hint {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-bottom: 16px;
+}
+
+button {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.7);
+}
+
+.upgrade-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.upgrade-btn {
+    background: #162036;
+    color: #ffffff;
+    border: 1px solid #10b981;
+    padding: 14px;
+    width: 245px;
+    line-height: 1.5;
+}
+
+.upgrade-btn small {
+    color: #94a3b8;
+    font-weight: normal;
+}
